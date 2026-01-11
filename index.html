@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glass Dictionary</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#a64ac9',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom smooth transition for glass effect */
+        .glass-card {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 min-h-screen flex items-center justify-center p-4 font-sans">
+
+    <div class="glass-card bg-white/20 w-full max-w-md rounded-2xl shadow-2xl p-8 border border-white/30 text-white">
+        
+        <h1 class="text-3xl font-bold mb-6 text-center drop-shadow-md">Dictionary</h1>
+
+        <div class="relative flex items-center mb-8">
+            <input type="text" id="inp-word" placeholder="Search for a word..." 
+                class="w-full py-3 px-4 bg-white/20 border border-white/30 focus:bg-white/30 focus:border-white/50 rounded-xl text-white placeholder-white/70 outline-none transition-all"
+                autocomplete="off">
+            <button id="search-btn" class="absolute right-0 px-4 text-white hover:scale-110 transition-transform">
+                <i class="fa-solid fa-search text-xl"></i>
+            </button>
+        </div>
+
+        <div id="result" class="hidden animate-in fade-in duration-500">
+            <div class="flex justify-between items-center mb-6">
+                <div>
+                    <h2 id="word" class="text-4xl font-bold capitalize drop-shadow-sm"></h2>
+                    <p id="phonetic" class="text-white/80 text-lg mt-1 font-mono"></p>
+                </div>
+                <button id="sound-btn" class="w-12 h-12 bg-white/20 text-white rounded-full flex items-center justify-center hover:bg-white/40 border border-white/30 transition-all hidden">
+                    <i class="fa-solid fa-volume-high text-lg"></i>
+                </button>
+            </div>
+
+            <div id="meanings-container" class="space-y-4">
+                </div>
+        </div>
+
+        <div id="message" class="text-center text-white mt-4 hidden"></div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
